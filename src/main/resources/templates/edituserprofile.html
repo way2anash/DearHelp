@@ -1,0 +1,236 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Update Profile</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.1.0/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/ionicons/2.0.1/css/ionicons.min.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Actor">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,700">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.5.2/animate.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/aos/2.1.1/aos.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/Swiper/3.3.1/css/swiper.min.css">
+    <link rel="stylesheet" href="css/styles.min.css">
+     <link rel="stylesheet" href="css/editpic.css">
+</head>
+
+<body><!-- navbar -->
+<div>
+    <div class="header-blue" style="  padding:0px;
+">
+        <nav class="navbar navbar-dark navbar-expand-md navigation-clean-search">
+            <div class="container"><a th:href="@{/index1}" class="navbar-brand">Dear Help</a><button data-toggle="collapse" data-target="#navcol-1" class="navbar-toggler"><span class="sr-only">Toggle navigation</span><span class="navbar-toggler-icon"></span></button>
+                <div
+                    class="collapse navbar-collapse" id="navcol-1">
+                    <ul class="nav navbar-nav">
+                        <li class="nav-item"><a th:href="@{/about1}" class="nav-link active">About</a></li>
+                        <li class="nav-item"><a th:href="@{/contactinfo1}" class="nav-link" style="  color:#ffffff;
+">Contact</a></li>
+                        <li class="dropdown"><a data-toggle="dropdown" href="#" class="dropdown-toggle nav-link dropdown-toggle" style="  color:#ffffff;
+">Service</a>
+                            <div class="dropdown-menu"><a href="/Doctor" class="dropdown-item">Doctors</a><a href="/Mechanic" class="dropdown-item">Mechanics</a><a href="/Plumber" class="dropdown-item">Plumbers</a><a href="/Pharmacy" class="dropdown-item">Pharmacy</a><a href="/Grocery" class="dropdown-item">Groceries</a>
+                                <a
+                                    href="/Electrician" class="dropdown-item">Electricians</a><a href="/Laundry" class="dropdown-item">Laundries</a><a href="/Stationery" class="dropdown-item">Stationaries</a><a href="/Personal Care" class="dropdown-item">Personal Care</a><a href="/School" class="dropdown-item">Schools</a><a href="#"
+                                        class="dropdown-item">Others</a></div>
+                        </li>
+                    </ul>
+                  </div>
+                <!--  -->
+                
+                 <div class="dropdown">
+                    
+                     <h1 class="icon fa fa-user-o "></h1>
+  <button class="btn btn-danger dropdown-toggle " type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+    User
+  </button>
+  <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+    <!-- My profile form -->
+        <a class="dropdown-item" th:href="@{/profile}">My Profile</a>
+    <a class="dropdown-item" th:href="@{/changePwd}">Change Password</a>
+    <!-- Logout form -->
+      <form th:action="@{/logout}" method="POST">
+         <input class="btn btn-outline-danger btn-lg btn-block" type="submit" value="Logout"/>
+    </form>
+      </div>
+                     </div>
+         <!--  -->      
+    </div>
+    </nav>
+</div>
+</div>
+<!-- search bar -->
+
+
+<div class="container bg-info text-white mt-0">
+
+<!-- form --> 
+<form method="post" th:action="@{/updateUserProfile}" th:object="${user}" enctype="multipart/form-data" onsubmit="return validation()">
+       <div class="row">
+            <div class="col-md-12 alert-col relative">
+                <div class="alert alert-info absolue center" role="alert"><button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true"></span></button>
+                <span th:text="${message}"></span></div>
+            </div>
+        </div>
+       
+       <div class="row">
+        <div class="col-md-8">
+            <h3>Personal Info</h3>
+             <div class="form-group">
+    <label for="user">Name</label>
+    <input type="text" class="form-control" id="user" th:field="*{userName}" aria-describedby="emailHelp" th:value="${user.userName}" required>
+   <span id="username" class="text-danger font-weight-bold"> </span>
+  </div>
+  
+   </div>
+           <!--pic sec-->
+            <div class="col-md-4">
+              <div class="picture-container">
+        <div class="picture">
+            <img th:src="@{${user.imageUrl}}" class="picture-src" id="wizardPicturePreview" title="">
+            <input type="file" id="wizard-picture" class="" name="file" >
+        </div>
+         <h6 class="">Change Picture</h6>
+
+    </div>
+                </div>
+           <!---->
+           </div>
+    
+
+    <div class="row">
+       
+        <div class="col-md-6"> <div class="form-group">
+    <label for="mobileNumber">Phone No</label>
+    <input type="text"  class="form-control" th:field="*{phoneNumber}" id="mobileNumber" aria-describedby="emailHelp" th:value="${user.phoneNumber}" required>
+      <span id="mobileno" class="text-danger font-weight-bold"> </span>
+  </div>
+  </div>
+</div>
+<!--pwd sec-->
+
+    
+<!---->
+     <div class="form-group">
+    <label for="inputAddress">Address</label>
+    <input type="text" th:field="*{address.streetName}" class="form-control" id="inputAddress" th:value="${user.address.streetName}" required>
+  </div>
+ 
+  <div class="form-row">
+    <div class="form-group col-md-6">
+      <label for="inputCity">City</label>
+      <input type="text" th:field="*{address.city}"  class="form-control" id="inputCity" th:value="${user.address.city}" required>
+    </div>
+    <div class="form-group col-md-4">
+      <label for="inputState">State</label>
+         <input type="text" th:field="*{address.state}"  class="form-control" id="inputState" th:value="${user.address.state}" required>
+
+    </div>
+    <div class="form-group col-md-2">
+      <label for="inputZip">Zip</label>
+      <input type="text" th:field="*{address.zipCode}"  class="form-control" id="inputZip" th:value="${user.address.zipCode}" required>
+    </div>
+  </div>
+    <!---->
+    <p>
+    <input type="hidden" id="custId" th:field="*{id}"  th:value="${user.id}">
+    </p>
+  
+  <button type="submit" class="btn btn-primary">Update</button>
+
+</form>
+
+
+</div>
+<div class="footer-dark"><a href="#0" class="cd-top js-cd-top cd-top--fade-out cd-top--show" style="background-image:url(&quot;cd-top-arrow.svg&quot;);">Top</a>
+    <footer>
+        <div class="container">
+            <div class="row">
+                <div class="col-sm-6 col-md-3 item">
+                    <h3>Services</h3>
+                    <ul>
+                        <li><a href="#">Plumber</a></li>
+                        <li><a href="#">Mechanics</a></li>
+                        <li><a href="#">Doctor</a></li>
+                        <li>More</li>
+                    </ul>
+                </div>
+                <div class="col-sm-6 col-md-3 item">
+                    <h3>About</h3>
+                    <ul>
+                        <li><a href="index.html">Company</a></li>
+                        <li><a href="untitled.html">Team</a></li>
+                        <li></li>
+                    </ul>
+                </div>
+                <div class="col-md-6 item text">
+                    <h3>Dear Help</h3>
+                    <p><strong>Dear Help</strong>is the easy way to get service provider at your door.<br /></p>
+                </div>
+                <div class="col item social"><a href="#"><i class="icon ion-social-facebook"></i></a><a href="#"><i class="icon ion-social-twitter"></i></a><a href="#"><i class="icon ion-social-snapchat"></i></a><a href="#"><i class="icon ion-social-instagram"></i></a></div>
+            </div>
+            <p class="copyright">Dear Help © 2019</p>
+        </div>
+    </footer>
+</div>
+
+
+
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.1.0/js/bootstrap.bundle.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/aos/2.1.1/aos.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Swiper/3.3.1/js/swiper.jquery.min.js"></script>
+    <script src="js/script.min.js"></script>
+    <script src="js/editpic.js"></script>
+    
+    <script type="text/javascript">
+     
+    
+
+    function validation(){
+
+      var user = document.getElementById('user').value;
+      
+      var mobileNumber = document.getElementById('mobileNumber').value;
+      
+      
+    
+    
+      
+      if(user == ""){
+        document.getElementById('username').innerHTML =" ** Please fill the username field";
+        return false;
+      }
+      if((user.length <= 2) || (user.length > 20)) {
+        document.getElementById('username').innerHTML =" ** Username lenght must be between 2 and 20";
+        return false; 
+      }
+      if(!isNaN(user)){
+        document.getElementById('username').innerHTML =" ** only characters are allowed";
+        return false;
+      }
+
+
+      if(mobileNumber == ""){
+        document.getElementById('mobileno').innerHTML =" ** Please fill the mobile NUmber field";
+        return false;
+      }
+      if(isNaN(mobileNumber)){
+        document.getElementById('mobileno').innerHTML =" ** user must write digits only not characters";
+        return false;
+      }
+      if(mobileNumber.length!=10){
+        document.getElementById('mobileno').innerHTML =" ** Mobile Number must be 10 digits only";
+        return false;
+      }
+  
+
+    }
+    </script>
+    
+</body>
+
+</html>

@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>List Users</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.1.0/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/ionicons/2.0.1/css/ionicons.min.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Actor">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,700">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.5.2/animate.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/aos/2.1.1/aos.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/Swiper/3.3.1/css/swiper.min.css">
+    <link rel="stylesheet" href="css/styles.min.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Duru+Sans">
+    <link rel="stylesheet" href="css/searchform.min.css">
+    
+    
+
+	
+</head>
+
+<body><!-- nav bar -->
+<div>
+    <div class="header-blue" style="  padding:0px;
+">
+        <nav class="navbar navbar-dark navbar-expand-md navigation-clean-search">
+            <div class="container"><a th:href="@{/admin}" class="navbar-brand">Dash board</a>
+            <a th:href="@{/messages}" class="navbar-brand mr-auto ">Messages</a>
+                <!--  -->
+                
+                 <div class="dropdown">
+                    
+                     <h1 class="icon fa fa-user-o "></h1>
+  <button class="btn btn-danger dropdown-toggle " type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+    Admin
+  </button>
+  <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+   
+    
+    <a class="dropdown-item" th:href="@{/adminChangePwd}">Change Password</a>
+    <!-- Logout form -->
+      <form th:action="@{/logout}" method="POST">
+         <input class="btn btn-outline-danger btn-lg btn-block" type="submit" value="Logout"/>
+    </form>
+      </div>
+                     </div>
+         <!--  -->      
+    </div>
+    </nav>
+</div>
+</div>
+<!-- search bar -->
+<div class="container">
+    <hr class="bg-white">
+   <form class="container" action="/searchSP2" >
+        <div class="input-group">
+            <div class="input-group-prepend loca"><span class="input-group-text claa" style="background-color:#ff0000;"><i class="fa fa-map-marker" style="font-size:34px; color: white"></i></span></div><input class="form-control" type="text" name="streetName" id="loc" placeholder="Where are You" style="background-color:rgb(255,237,237);" required>
+            <input
+                class="form-control" type="text" name="serviceType" placeholder="Doctor" id="search" style="width:225px;" required>
+                <input
+                class="form-control" type="text" name="specialization" placeholder="Dentist" id="search" style="width:225px;">
+                <div class="input-group-append"><button class="btn btn-light hvr-sweep-to-right" type="submit" style="width:120px;height:67px;font-size:17px;font-family:'Duru Sans', sans-serif;"><i class="fa fa-search"></i>&nbsp;<strong>Search </strong></button></div>
+        </div>
+    </form>
+       
+</div>
+<hr class="bg-white">
+<div class="container-fluid">
+  
+<table class="table table-striped">
+<thead class="thead-dark">
+		<tr>
+		    <th scope="col">Id</th>
+			<th scope="col">Name</th>
+			<th scope="col">Email</th>
+            <th scope="col">Phone Number</th>
+			<th scope="col">Street Name</th>
+            <th scope="col">City</th>
+			<th scope="col">ZipCode</th>
+            <th scope="col">State</th>
+			
+		</tr>
+</thead>
+<tbody>
+<tr th:each="user: ${users}">
+
+<td th:text=" ${user.id}">Id</td>
+<td th:text=" ${user.userName}">Name</td>
+<td th:text="${user.email}">Email</td>
+<td th:text="${user.phoneNumber}">PhoneNumber</td>
+<td th:text="${user.address.streetName}">StreetName</td>
+<td th:text="${user.address.city}">City</td>
+<td th:text="${user.address.zipCode}">ZipCode</td>
+<td th:text=" ${user.address.state}">State</td>
+
+ 
+</tr>
+</tbody>
+</table> 
+ 
+  
+    
+
+</div><div class="mt-2"></div>
+<div class="footer-dark fixed-bottom">
+        <footer>
+            <div class="container">
+                <div class="row">
+                    <div class="col-sm-6 col-md-3 item">
+                        <h3>Services</h3>
+                        <ul>
+                            <li><a href="#">Plumber</a></li>
+                            <li><a href="#">Mechanics</a></li>
+                            <li><a href="#">Doctor</a></li>
+                            <li>More</li>
+                        </ul>
+                    </div>
+                    <div class="col-sm-6 col-md-3 item">
+                        <h3>About</h3>
+                        <ul>
+                            <li><a href="index.html">Company</a></li>
+                            <li><a href="untitled.html">Team</a></li>
+                            <li></li>
+                        </ul>
+                    </div>
+                    <div class="col-md-6 item text">
+                        <h3>Dear Help</h3>
+                        <p><strong>Dear Help</strong>&nbsp;is the easy way to get service provider at your door.<br></p>
+                    </div>
+                    <div class="col item social"><a href="#"><i class="icon ion-social-facebook"></i></a><a href="#"><i class="icon ion-social-twitter"></i></a><a href="#"><i class="icon ion-social-snapchat"></i></a><a href="#"><i class="icon ion-social-instagram"></i></a></div>
+                </div>
+                <p class="copyright">Dear Help © 2019</p>
+            </div>
+        </footer>
+    </div>
+
+
+
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.1.0/js/bootstrap.bundle.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/aos/2.1.1/aos.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Swiper/3.3.1/js/swiper.jquery.min.js"></script>
+    <script src="js/script.min.js"></script>
+   
+</body>
+
+</html>

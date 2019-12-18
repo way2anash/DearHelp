@@ -1,0 +1,214 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Index</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.1.0/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/ionicons/2.0.1/css/ionicons.min.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Actor">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,700">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.5.2/animate.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/aos/2.1.1/aos.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/Swiper/3.3.1/css/swiper.min.css">
+    <link rel="stylesheet" href="css/styles.min.css">
+</head>
+
+<body>
+    <div>
+        <div class="header-blue"><div class="container">
+    <div class=row>
+    <div class="col-md-8">
+<nav class="navbar navbar-dark navbar-expand-md navigation-clean-search">
+    <div class="container"><a th:href="@{/index}" class="navbar-brand">Dear Help</a><button data-toggle="collapse" data-target="#navcol-1" class="navbar-toggler"><span class="sr-only">Toggle navigation</span><span class="navbar-toggler-icon"></span></button>
+        <div class="collapse navbar-collapse"
+            id="navcol-1">
+            <ul class="nav navbar-nav">
+                <li role="presentation" class="nav-item"><a th:href="@{/about}" class="nav-link active">About</a></li>
+                <li role="presentation" class="nav-item"><a th:href="@{/contactinfo}" class="nav-link" style="color:#ffffff;">Contact</a></li>
+                
+            </ul>
+           
+        </div>
+    </div>
+    
+</nav>
+        </div>
+          <div class="col-md-2">
+          <a href="/login" class="btn btn-danger mt-3 ml-5" role="button">Login</a>
+          </div>
+        
+        <div class="col-md-2 mt-3">
+       
+        
+          <div class="dropdown">
+  <button class="btn btn-danger dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+    Register
+  </button>
+  <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+    <a class="dropdown-item"  th:href="@{/regfuser}">As User</a>
+    <a class="dropdown-item" th:href="@{/regfsv}">As Service provider</a>
+      </div>
+</div>
+</div>
+            
+    </div>
+    </div><div class="container">
+    <hr class="bg-white">
+    <div class="row">
+        <div class="col-md-2"></div>
+         
+      
+      
+    </div>
+       
+</div>
+            <div class="container hero">
+                <div class="row">
+                    <div class="col-12 col-lg-5 col-xl-5 offset-lg-0 offset-xl-1">
+                        <h2 data-aos="zoom-in-right" data-aos-duration="1000" data-aos-delay="250" style="color:rgb(255,255,255);"><strong>WE FIND SERVICES FOR YOU</strong><br></h2>
+                        <p><strong>Dear Help</strong>&nbsp;is the easy way to get service provider at your door.<br></p><a class="btn btn-light btn-lg action-button" role="button" th:href="@{/about}">Learn More</a></div>
+                    <div class="col-md-5 col-lg-5 offset-lg-1 offset-xl-0 d-none d-lg-block phone-holder">
+                        <div class="iphone-mockup"><img src="img/iphone.png" class="pulse animated infinite device"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="projects-horizontal">
+        <div class="container">
+            <div class="intro">
+                <h2 class="text-center">POPULAR SERVICES</h2>
+            </div>
+            <div class="row projects">
+                <div class="col-sm-6 col-lg-6 offset-lg-0 item">
+                    <div class="row">
+                        <div class="col-md-12 col-lg-5"><a href="#"><img class="img-fluid" src="img/Doc.png" data-aos="fade-right" data-aos-duration="1000" data-aos-delay="150"></a></div>
+                        <div class="col">
+                            <h3 data-aos="fade-down" data-aos-duration="1000" data-aos-delay="200" class="name">Doctors</h3>
+                            <p data-aos="fade-up" data-aos-delay="200" class="description">The best doctor gives the least medicines.<br></p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-sm-6 item">
+                    <div class="row">
+                        <div class="col-md-12 col-lg-5"><a href="#"><img class="img-fluid" src="img/electrical-training-courses.jpg" data-aos="fade-left" data-aos-duration="1000" data-aos-delay="150"></a></div>
+                        <div class="col">
+                            <h3 data-aos="fade-down" data-aos-duration="1000" data-aos-delay="200" class="name">Electricians</h3>
+                            <p data-aos="fade-up" data-aos-duration="1000" data-aos-delay="200" class="description">Fortunately, I've also been an electrician, and that's a happy memory for me.<br></p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-sm-6 item">
+                    <div class="row">
+                        <div class="col-md-12 col-lg-5"><a href="#"><img class="img-fluid" src="img/gym.png" data-aos="fade-right" data-aos-duration="1000" data-aos-delay="150"></a></div>
+                        <div class="col">
+                            <h3 data-aos="fade-down" data-aos-duration="1000" data-aos-delay="200" class="name">Fitness</h3>
+                            <p data-aos="fade-up" data-aos-duration="1000" data-aos-delay="200" class="description">“Strength does not come from the physical capacity. It comes from an indomitable will.”<br></p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-sm-6 item">
+                    <div class="row">
+                        <div class="col-md-12 col-lg-5"><a href="#"><img class="img-fluid" src="img/Plumber.png" data-aos="fade-left" data-aos-duration="1000" data-aos-delay="150"></a></div>
+                        <div class="col">
+                            <h3 data-aos="fade-down" data-aos-duration="1000" data-aos-delay="200" class="name">Plumber</h3>
+                            <p data-aos="fade-up" data-aos-duration="1000" data-aos-delay="200" class="description">A plumber is an adventurer who traces leaky pipes to their source.<br></p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-sm-6 item">
+                    <div class="row">
+                        <div class="col-md-12 col-lg-5"><a href="#"><img class="img-fluid" src="img/gro.jpg" data-aos="fade-right" data-aos-duration="1000" data-aos-delay="200"></a></div>
+                        <div class="col">
+                            <h3 data-aos="fade-down" data-aos-duration="1000" data-aos-delay="200" class="name">Grocery</h3>
+                            <p data-aos="fade-up" data-aos-duration="1000" data-aos-delay="200" class="description">A retail shop that primarily sells food. A grocer is a bulk seller of food.<br></p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-sm-6 item">
+                    <div class="row">
+                        <div class="col-md-12 col-lg-5"><a href="#"><img class="img-fluid" src="img/chem.jpg" data-aos="fade-right" data-aos-duration="1000" data-aos-delay="150"></a></div>
+                        <div class="col">
+                            <h3 data-aos="fade-down" data-aos-duration="1000" data-aos-delay="200" class="name">Pharmacy</h3>
+                            <p data-aos="fade-up" data-aos-duration="1000" data-aos-delay="200" class="description">A shop or hospital dispensary where medicinal drugs are prepared or sold.<br></p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="simple-slider">
+        <div class="swiper-container">
+            <div class="swiper-wrapper">
+                <div class="swiper-slide" style="background-image:url(&quot;img/para3.png&quot;);"></div>
+                <div class="swiper-slide" style="background-image:url(&quot;img/para2.png&quot;);"></div>
+                <div class="swiper-slide" style="background-image:url(&quot;img/para1.png&quot;);"></div>
+            </div>
+            <div class="swiper-pagination"></div>
+            <div class="swiper-button-prev"></div>
+            <div class="swiper-button-next"></div>
+        </div>
+    </div>
+    <div class="features-blue">
+        <div class="container">
+            <div class="intro">
+                <h2 class="text-center" data-aos="fade-down" data-aos-duration="1000" data-aos-delay="250">Features</h2>
+            </div>
+            <div class="row features">
+                <div class="col-sm-6 col-md-4 item" data-aos="fade-right" data-aos-duration="1000" data-aos-delay="150"><i class="fa fa-map-marker icon" style="color:rgb(255,255,255);"></i>
+                    <h3 class="name">Works everywhere</h3>
+                    <p class="description">Dear Help is always live and available for your service.</p>
+                </div>
+                <div class="col-sm-6 col-md-4 item" data-aos="zoom-in" data-aos-duration="1000" data-aos-delay="150"><i class="fa fa-binoculars icon" style="color:rgb(255,255,255);"></i>
+                    <h3 class="name">Always Available</h3>
+                    <p class="description">Dear help is always at your service to assist you in case of any difficulties.<br></p>
+                </div>
+                <div class="col-sm-6 col-md-4 item" data-aos="fade-left" data-aos-duration="1000" data-aos-delay="150"><i class="fa fa-clock-o icon" style="color:rgb(255,255,255);"></i>
+                    <h3 class="name">Save your time<br></h3>
+                    <p class="description">Dear help helps you live smarter, giving you time to focus on what's most important.<br></p>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="footer-dark"><a href="#0" class="cd-top js-cd-top cd-top--fade-out cd-top--show" style="background-image:url(&quot;img/cd-top-arrow.svg&quot;);">Top</a>
+        <footer>
+            <div class="container">
+                <div class="row">
+                    <div class="col-sm-6 col-md-3 item">
+                        <h3>Services</h3>
+                        <ul>
+                            <li><a href="#">Plumber</a></li>
+                            <li><a href="#">Mechanics</a></li>
+                            <li><a href="#">Doctor</a></li>
+                            <li>More</li>
+                        </ul>
+                    </div>
+                    <div class="col-sm-6 col-md-3 item">
+                        <h3>About</h3>
+                        <ul>
+                            <li><a href="index.html">Company</a></li>
+                            <li><a href="untitled.html">Team</a></li>
+                            <li></li>
+                        </ul>
+                    </div>
+                    <div class="col-md-6 item text">
+                        <h3>Dear Help</h3>
+                        <p><strong>Dear Help</strong>&nbsp;is the easy way to get service provider at your door.<br></p>
+                    </div>
+                    <div class="col item social"><a href="#"><i class="icon ion-social-facebook"></i></a><a href="#"><i class="icon ion-social-twitter"></i></a><a href="#"><i class="icon ion-social-snapchat"></i></a><a href="#"><i class="icon ion-social-instagram"></i></a></div>
+                </div>
+                <p class="copyright">Company Name © 2017</p>
+            </div>
+        </footer>
+    </div>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.1.0/js/bootstrap.bundle.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/aos/2.1.1/aos.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Swiper/3.3.1/js/swiper.jquery.min.js"></script>
+    <script src="js/script.min.js"></script>
+</body>
+
+</html>
